@@ -1,0 +1,57 @@
+#include<iostream>
+
+using namespace std;
+
+void leerVector(double vector,int n);
+void mostrarVector(const double vector[], int tamano);
+double encontrarMaximo(const double vector[], int tamano);
+
+int main () {
+    int n;
+    
+    do{
+        cout<<"Ingrese la cantitad de elementos";
+        cin>>n;
+        if(n<=0) {
+            cout<<"error";
+        }
+    } while(n<=0);
+    
+    const int Max_Tamano=100;
+    if(n<=0) {
+        cout<<"El tamano permitido es"<<Max_Tamano<<endl;
+        return 1;
+    }
+    double miVector[Max_Tamano];
+    leerVector(miVector,n);
+    mostrarVector(miVector,n);
+    
+    double maximo=encontrarMaximo(miVector,n);
+    cout<<"El valor maximo en el vector es:"<<maximo<<endl;
+    
+    return 0;
+}
+    void leerVector(double vector[],int tamano) {
+        for(int i=0;i<tamano;i++) {
+           cout<<"Elemento ["<<i<<"]:";
+           cin>>vector[i];
+        }   
+}       
+        void mostrarVector(const double vector[],int tamano) {
+            cout<<"[";
+            for(int i=0;i<tamano;i++) {
+                cout<<vector[i]<<" ";
+            }
+            
+        }
+        double encontrarMaximo(const double vector[],int tamano) {
+            double maximo=vector[0];
+            
+            for(int i=1;i<tamano;i++) {
+               if(vector[i]>maximo) {
+                   maximo=vector[i];
+               }
+            }
+            return maximo;
+        }
+
